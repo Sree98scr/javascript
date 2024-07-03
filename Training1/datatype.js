@@ -1,7 +1,7 @@
 //primitive datatypes
 
 //string
-let fruit="Red";
+let colour="Red";
 console.log(colour);
 
 //boolean
