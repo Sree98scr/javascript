@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<p id="txt"></p>
+<body>
+    <script >
+        async function fn(){
+            let a=2;
+            let b=10;
+            if(a<b){
+                return "hello"
+            }
+            else{
+                return"false"
+            }
+        }
+        fn().then(
+            function(value)
+            {
+                console.log(value)
+            },
+            function(error){
+                console.log(error)
+            }
+
+        );
+    </script>
+
+    <script>
+        async function myfun(){
+        return Promise.resolve("hello");
+        }
+        myfun().then(
+            function(value){
+                console.log(value);
+        },
+            function(error){
+                console.log(error);
+})
+        
+        
+    </script>
+</body>
+</html>
+
