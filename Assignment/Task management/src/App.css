@@ -1,0 +1,54 @@
+/* App.css */
+
+.TaskManagement {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f0f0f0;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+}
+
+.TaskList {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.TaskForm {
+  margin-bottom: 20px;
+}
+
+.Task {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.task-text {
+  cursor: pointer;
+}
+
+.task-buttons {
+  margin-top: 5px;
+}
+
+.task-button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+}
+
+.task-button:hover {
+  background-color: #0056b3;
+}
