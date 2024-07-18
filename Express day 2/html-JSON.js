@@ -32,5 +32,9 @@ app.get('/feed', (req, res) => {
     res.send('Feedpage Successful');
 
 })  ;
+app.post('/post', (req, res) => {
+    res.send('posted successfully');
+
+})  ;
 
 app.listen(5000);
