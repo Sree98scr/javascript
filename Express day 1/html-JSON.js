@@ -32,5 +32,9 @@ app.get('/feed', (req, res) => {
     res.send('Feedpage Successful');
 
 })  ;
+app.delete('/delete', (req, res)=> {
+    console.log('DELETE request')
+    res.send('good evening!');
+});
 
 app.listen(5000);
