@@ -1,18 +1,43 @@
-const express= require('express');
+'use strict';
 
-const app = express();
-const cors= require('cors');
+const fs = require('fs');
+const path = require('path');
+const Sequelize = require('sequelize');
+const process = require('process');
+const basename = path.basename(__filename);
+const env = process.env.NODE_ENV || 'development';
+const config = require(__dirname + '/../config/config.json')[env];
+const db = {};
 
-app.use(express.json());
+let sequelize;
+if (config.use_env_variable) {
+  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+} else {
+  sequelize = new Sequelize(config.database, config.username, config.password, config);
+}
 
-app.use(cors());
- const db= require('./models/index');
+fs
+  .readdirSync(__dirname)
+  .filter(file => {
+    return (
+      file.indexOf('.') !== 0 &&
+      file !== basename &&
+      file.slice(-3) === '.js' &&
+      file.indexOf('.test.js') === -1
+    );
+  })
+  .forEach(file => {
+    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
+    db[model.name] = model;
+  });
 
- const taskRouter=require('./routes/Task');
- app.use('/tasks',taskRouter);
+Object.keys(db).forEach(modelName => {
+  if (db[modelName].associate) {
+    db[modelName].associate(db);
+  }
+});
 
- db.sequelize.sync().then(() =>{
-    app.listen(3001, () => {
-        console.log('Server is running on port 3001');  // server is running on port 3001
-     }); 
- })
+db.sequelize = sequelize;
+db.Sequelize = Sequelize;
+
+module.exports = db;

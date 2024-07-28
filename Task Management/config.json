@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "sree",
+    "database": "backend",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "test": {
+   "username": "postgres",
+    "password": "sree",
+    "database": "backend",
+    "host": "localhost",
+    "dialect": "postgres"
+  },
+  "production": {
+   "username": "postgres",
+    "password": "sree",
+    "database": "backend",
+    "host": "localhost",
+    "dialect": "postgres"
+  }
+}
